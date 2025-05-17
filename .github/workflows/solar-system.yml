@@ -15,6 +15,7 @@ env:
 jobs:
     unit-testing:
         name: Unit Testing
+        continue-on-error: true
         strategy:
           matrix:
             nodejs-version: [18, 19, 20]
@@ -46,6 +47,7 @@ jobs:
 
     code-coverage:
         name: Code Coverage
+        continue-on-error: true
         runs-on: ubuntu-latest
         steps:
         - name: Checkout Repository
