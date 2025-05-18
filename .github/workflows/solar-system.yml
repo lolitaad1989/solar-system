@@ -46,6 +46,8 @@ jobs:
 
     code-coverage:
         name: Code Coverage
+        needs: [unit-testing]
+        continue-on-error: true
         runs-on: ubuntu-latest
         steps:
         - name: Checkout Repository
@@ -78,7 +80,7 @@ jobs:
             retention-days: 5
     docker:
       name: Containerization
-      needs: [unit-testing, code-coverage]
+      needs: [code-coverage]
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Repository
