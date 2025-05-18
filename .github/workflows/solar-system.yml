@@ -115,5 +115,15 @@ jobs:
             echo Testing Image URL using wget
             wget -qO - 127.0.0.1:3000/live | egrep live
 
+        - name: Build Push  Image
+          uses: docker/build-push-action@v4
+          with:
+            context: .
+            file: Dockerfile
+            push: true
+            tags: ${{ secrets.DOCKER_USERNAME }}/solar-system:${{ github.sha }}
+
+      
+
             
         
