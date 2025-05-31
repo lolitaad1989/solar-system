@@ -14,15 +14,24 @@ on:
           version:
             description: 'Application version to deploy'
             required: false
-            default: 'latest']
+            default: 'latest'
 
+jobs:
+    print_context:
+        runs-on: ubuntu-latest
+        steps:
+            - env:
+                EVENT_CONTEXT: ${{ toJSON(github.event) }}
+              run: |
+                echo $EVENT_CONTEXT
+   
         # #
         # env:
         # MONGO_URI: "mongodb+srv://supercluster.d83jj.mongodb.net/superData"
         # MONGO_USERNAME: superuser
         # MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD}}
 
-        # jobs:
+
         #     unit-testing:
         #         name: Unit Testing
         #         continue-on-error: true
