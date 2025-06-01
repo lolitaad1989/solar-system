@@ -12,7 +12,7 @@ on:
             required: true
             default: 'dev'
           version:
-            description: 'Application version to deploy'
+            description: 'Application version to deploy in'
             required: false
             default: 'latest'
 
